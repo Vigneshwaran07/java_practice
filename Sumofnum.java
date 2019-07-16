@@ -1,5 +1,5 @@
 import java.util.*;
-public class B
+public class Sumofnum
 {
     static int f=0;
     static int sod(int n)
