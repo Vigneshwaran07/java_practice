@@ -30,13 +30,13 @@ class Username
         {
         	if(name1.compareTo(name2)>0)
         	{
-        		smallname = name2;
-            	largername = name1;
+                smallname = name2;
+                largername = name1;
         	}
         	else
         	{
-        		smallname = name1;
-            	largername = name2;
+                smallname = name1;
+                largername = name2;
         	}
         }
         result = largername.charAt(0)+smallname;
