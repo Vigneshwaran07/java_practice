@@ -40,16 +40,23 @@ public class Split {
 	
 	public static void main(String[] args)
 	{
-		Scanner sc = new Scanner(System.in);
-		String[] str1 = split(sc.next()).split("-");
-		String[] str2 = split(sc.next()).split("-");
-		String[] str3 = split(sc.next()).split("-");
-		String op1 = str1[0]+str2[1]+str3[2];
-		String op2 = str1[1]+str2[2]+str3[0];
-		String op3 = str1[2]+str2[0]+str3[1];
-		op3 = toggle(op3);
-		System.out.println(op1+"\n"+op2+"\n"+op3);
-		sc.close();
+		try
+		{
+			Scanner sc = new Scanner(System.in);
+			String[] str1 = split(sc.next()).split("-");
+			String[] str2 = split(sc.next()).split("-");
+			String[] str3 = split(sc.next()).split("-");
+			String op1 = str1[0]+str2[1]+str3[2];
+			String op2 = str1[1]+str2[2]+str3[0];
+			String op3 = str1[2]+str2[0]+str3[1];
+			op3 = toggle(op3);
+			System.out.println(op1+"\n"+op2+"\n"+op3);
+			sc.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Enter all string with length greater than 3");
+		}
+		
 	}
 }
-
