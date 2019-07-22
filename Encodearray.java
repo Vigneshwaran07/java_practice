@@ -13,6 +13,10 @@ public class Encodedarray
 		{
 			arr[i++] = Integer.parseInt(k);
 		}
+		int first = arr[0];
+		int tot = Arrays.stream(arr).sum();
+		System.out.println(first);
+		System.out.println(tot);
 		for(i=0;i<inp1.length-1;i++)
 		{
 			arr[i] = arr[i] + arr[i+1];
