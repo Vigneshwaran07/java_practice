@@ -3,11 +3,12 @@ public class Sequence
 {
     public static void main(String args[])
     {
-        int arr[] = {3,2,3,4,5,0};
+        int arr[] ={3,2,3,4,5,0};
         int start = 0, end = 0, i, j, max_size = 0, final_start = 0, final_end = 0, temp_count = 1;
         for(i=0;i<arr.length-1;i++)
         {
             start = i;
+            temp_count = 1; //everytime reset the count
             for(j=i;j<arr.length-1;j++)
             {
                 if(arr[j]<arr[j+1])
@@ -31,7 +32,7 @@ public class Sequence
                 max_size = temp_count;
                 final_start = start;
                 final_end = end;
-                temp_count = 1;
+                
             }
             if(j == arr.length-2)
             {
@@ -40,7 +41,11 @@ public class Sequence
             
             
         }
-        System.out.println(final_start);
-        System.out.println(final_end);
+        System.out.println("Start : "+(final_start+1)+"");
+        System.out.println("End : "+(final_end+1)+"");
+        for(i=final_start;i<=final_end;i++)
+        {
+          System.out.print(arr[i]+" ");
+        }
     }
 }
