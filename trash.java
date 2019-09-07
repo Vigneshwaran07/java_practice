@@ -1,4 +1,3 @@
-package hydra;
 import java.util.*;
 public class robo {
   
@@ -18,12 +17,13 @@ public class robo {
   
   public static void main(String[] args)
   {
-    int x =3, y =3;
-    String pos = "2-2-E", move = "R M L M L M", result = "";
+    int x =3, y =4;
+    String pos = "2-2-E", move = "R M L M L M R M", result = "";
     
     String movement[] = move.split(" ");
     
     int robo_x = Character.getNumericValue(pos.charAt(0)), robo_y = Character.getNumericValue(pos.charAt(2));
+    int multiply_flag = 1;
     
     HashMap<String, Integer> dir = new HashMap<>();
     dir.put("N", 0);
@@ -35,12 +35,6 @@ public class robo {
     
     for(String i:movement)
     {
-      if(Math.abs(robo_x) > x || Math.abs(robo_y) > y)
-      {
-        border_exceed_flag = 1;
-        break;
-      }
-      
       if(i.equals("L"))
       {
         degree -= 90;
@@ -51,32 +45,35 @@ public class robo {
       }
       else if(i.equals("M"))
       {
-        if(degree == 180)
+        switch(degree)
         {
-          robo_y -= 1;
-        }
-        else if(degree == 270)
-        {
-          robo_x -= 1;
-        }
-        else if(degree == 0)
-        {
-          robo_y += 1;
-        }
-        else if(degree == 90)
-        {
-          robo_x += 1;
+          case 0:   robo_y += 1; break;
+          case 90:  robo_x += 1; break;
+          case 180: robo_y -= 1; break;
+          case 270: robo_x -= 1; break;
         }
       }
+        if(Math.abs(robo_x) > x || Math.abs(robo_y) > y)
+        {
+          switch(degree)
+            {
+              case 0:   robo_y -= 1; break;
+              case 90:  robo_x -= 1; break;
+              case 180: robo_y += 1; break;
+              case 270: robo_x += 1; break;
+            }
+          border_exceed_flag = 1;
+          break;
+        }
       degree = degree%360;
     }
     if(border_exceed_flag == 1)
     {
-    	result = robo_x+"-"+robo_y+"-"+getDirection(degree)+"-ER";
+        result = robo_x+"-"+robo_y+"-"+getDirection(degree)+"-ER";
     }
     else
     {
-    	result = robo_x+"-"+robo_y+"-"+getDirection(degree);
+        result = robo_x+"-"+robo_y+"-"+getDirection(degree);
     }
     System.out.println(result);
   }
