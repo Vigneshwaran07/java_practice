@@ -6,8 +6,14 @@ public class tokens {
 	public static void main(String[] args)
 	{
 		int n = 10, flag = 0;
-		int arr1[] = {99,46,39,102,45,521,65,4,47,741};
-		String arr2[] = {"Rajesh", "Abdul","Rahul","priya","Sanjay","Nidhi","Varun", "Varsha", "Basil","Asif"};
+		/*int arr1[] = {99,46,39,102,45,521,65,4,47,741};
+		String arr2[] = {"Rajesh", "Abdul","Rahul","priya","Sanjay","Nidhi","Varun", "Varsha", "Basil","Asif"};*/
+		
+		int arr1[] = {9,89,5,0,6,65,4};
+		String arr2[] = {"aa","bb","cc","dd","ee","ff","gg"};
+		n = 7;
+		
+		
 		HashMap<Integer, String> dir = new HashMap<>();
 		for(int i =0;i<n;i++)
 		{
